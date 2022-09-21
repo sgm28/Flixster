@@ -34,7 +34,8 @@ data class Movie (
                     Movie(
                         movieJson.getInt("id"),
                         movieJson.getString("poster_path"),
-                        movieJson.getString("backdrop_path"),
+                        movieJson.getString("backdrop_path"), //I am grabbing the backdrop_path for future use.
+                        //When the screen orientation changes to landscape, I will use the backdrop_path
                         movieJson.getString("title"),
                         movieJson.getString("overview"),
 

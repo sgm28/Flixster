@@ -15,6 +15,10 @@ private const val TAG = "MainActivity"
 //URL FOR now playing videos from The Movie Database API
 private const val NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"
 private lateinit var rvMovies: RecyclerView
+
+//Boolean variable for LandscapeMode
+var isLandScape = false
+
 class MainActivity : AppCompatActivity() {
 
     // 1. Define a data model class as the data source - DONE
@@ -87,6 +91,21 @@ class MainActivity : AppCompatActivity() {
 
         })
     }
+    // This function detect orientation changes
+    // This line (19) in the AndroidManifest.xml,
+    // android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+    // calls this function
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
 
+        // Checks the orientation of the screen
+        if (newConfig.orientation === Configuration.ORIENTATION_LANDSCAPE) {
+
+            isLandScape = true
+
+        } else if (newConfig.orientation === Configuration.ORIENTATION_PORTRAIT) {
+
+        }
+    }
 
 }

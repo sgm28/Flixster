@@ -35,13 +35,15 @@ class MovieAdapter(private val context: Context, private val  movies: List<Movie
         Log.i(TAG, "onBindViewHolder $position")
         val movie = movies[position]
         //define in ViewHolder class
-          holder.bind(movie)
 
-        val context  = holder.itemView.context
-       if ( context.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE)
-       {
-           holder.bindLandscape(movie)
-       }
+
+        if(isLandScape) {
+            holder.bindLandscape(movie)
+        }
+        else
+        {
+            holder.bind(movie)
+        }
 
 
     }
@@ -84,7 +86,12 @@ inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 
 }
+
+
     }
+
+
+
 
 
 
