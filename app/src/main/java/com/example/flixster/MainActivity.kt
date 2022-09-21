@@ -1,5 +1,6 @@
 package com.example.flixster
 
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         //reference to the Recycler view
         rvMovies = findViewById(R.id.rvMovies)
 
-        // Movie adapter object from the MovieAddapter class
+        // Movie adapter object from the MovieAdapter class
         val movieAdapter = MovieAdapter(this,movies)
 
         //Binding the adapter to the Recycler view
@@ -86,4 +87,6 @@ class MainActivity : AppCompatActivity() {
 
         })
     }
+
+
 }

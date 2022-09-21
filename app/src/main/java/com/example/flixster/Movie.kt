@@ -1,5 +1,6 @@
 package com.example.flixster
 
+import android.content.res.Configuration
 import org.json.JSONArray
 
 
@@ -7,21 +8,23 @@ import org.json.JSONArray
 data class Movie (
     //selecting the keys wanted out of JSON object
     val movieId: Int,
-    private val posterPath: String,
+    internal var posterPath: String,
+    val backdrop : String,
     val title: String,
     val overview: String,
 )
 {
     //The full path to the image with image size of w342
     //Need a full url
-    val posterImageUrl = "https://image.tmdb.org/t/p/w342/$posterPath"
+    var posterImageUrl = "https://image.tmdb.org/t/p/w342/$posterPath"
     //Allows you call methods on the movie class without instantiating  the object
     companion object{
-        fun fromJasonArray(){
-
-        }
 
         fun fromJsonArray(movieJsonArray: JSONArray) : List<Movie> {
+
+
+
+
             val movies = mutableListOf<Movie>()
             for (i in 0 until movieJsonArray.length())
             {
@@ -31,6 +34,7 @@ data class Movie (
                     Movie(
                         movieJson.getInt("id"),
                         movieJson.getString("poster_path"),
+                        movieJson.getString("backdrop_path"),
                         movieJson.getString("title"),
                         movieJson.getString("overview"),
 
@@ -41,4 +45,7 @@ data class Movie (
             return movies //returning the movie list
         }
     }
+
+
 }
+

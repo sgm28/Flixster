@@ -1,6 +1,7 @@
 package com.example.flixster
 
 import android.content.Context
+import android.content.res.Configuration
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,8 @@ import com.bumptech.glide.Glide
 private const val TAG = "MovieAdapter"
 class MovieAdapter(private val context: Context, private val  movies: List<Movie>)
     : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
+
+
 
 
     //Expensive operation: create a view
@@ -34,6 +37,13 @@ class MovieAdapter(private val context: Context, private val  movies: List<Movie
         //define in ViewHolder class
           holder.bind(movie)
 
+        val context  = holder.itemView.context
+       if ( context.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE)
+       {
+           holder.bindLandscape(movie)
+       }
+
+
     }
 
     override fun getItemCount() = movies.size
@@ -44,6 +54,8 @@ inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val tvTitle = itemView.findViewById<TextView>(R.id.tvTitle)
     private val tvOverView = itemView.findViewById<TextView>(R.id.tvOverview)
 
+
+
     fun bind(movie: Movie) {
         tvTitle.text = movie.title
         tvOverView.text = movie.overview
@@ -51,7 +63,26 @@ inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         Glide.with(context).load(movie.posterImageUrl).into(ivPoster)
 
 
+
     }
+
+    fun bindLandscape(movie: Movie) {
+        tvTitle.text = movie.title
+        tvOverView.text = movie.overview
+
+       movie.posterPath = movie.backdrop
+        movie.posterImageUrl = "https://image.tmdb.org/t/p/w342/${movie.backdrop}"
+        Glide.with(context).load(movie.posterImageUrl).into(ivPoster)
+
+
+
+
+
+    }
+
+
+
+
 }
     }
 
