@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentEnd="true">
+
+    <ImageView
+        android:id="@+id/ivPoster"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="1dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="false"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@id/ivPoster"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="Wire Room"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <TextView
+        android:id="@+id/tvOverview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitle"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_toRightOf="@id/ivPoster"
+        android:ellipsize="end"
+
+        android:maxLines="5"
+        android:text="New recruit Justin Rosa must monitor arms-smuggling cartel member Eddie Flynn — and keep him alive at all costs. When a SWAT team descends on Flynn’s home, Rosa breaks protocol and contacts the gangster directly to save his life. As gunmen break into the Wire Room and chaos erupts, Mueller and Rosa make a final, desperate stand against the corrupt agents and officials who seek to destroy evidence and kill them both." />
+
+</RelativeLayout>
