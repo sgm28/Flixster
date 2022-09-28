@@ -7,7 +7,7 @@
         <entry key="..\:/Users/Sakar/Flixster/app/src/main/res/layout-land/item_movie.xml" value="0.19009900272108768" />
         <entry key="..\:/Users/Sakar/Flixster/app/src/main/res/layout-land/landscape.xml" value="0.21188630490956073" />
         <entry key="..\:/Users/Sakar/Flixster/app/src/main/res/layout/activity_main.xml" value="0.19960395285714205" />
-        <entry key="..\:/Users/Sakar/Flixster/app/src/main/res/layout/item_movie.xml" value="0.31366335448979465" />
+        <entry key="..\:/Users/Sakar/Flixster/app/src/main/res/layout/item_movie.xml" value="0.23762375340135958" />
         <entry key="..\:/Users/Sakar/Flixster/app/src/main/res/layout/landscape.xml" value="0.17083333333333334" />
       </map>
     </option>
@@ -17,5 +17,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.23762375340135958" />
+      </ProjectState>
+    </option>
   </component>
 </project>
