@@ -1,21 +1,27 @@
 package com.example.flixster
 
 import android.content.res.Configuration
+import android.os.Parcelable
+import kotlinx.parcelize.IgnoredOnParcel
+import kotlinx.parcelize.Parcelize
 import org.json.JSONArray
 
 
 //This class is used to extract data from the JSON object and convert it to an object
+@Parcelize //Use for the Intent to pass the movie data object
 data class Movie (
     //selecting the keys wanted out of JSON object
     val movieId: Int,
+    val voteAverage: Double,
     internal var posterPath: String,
     val backdrop : String,
     val title: String,
     val overview: String,
-)
+) : Parcelable //extending parcelable
 {
     //The full path to the image with image size of w342
     //Need a full url
+    @IgnoredOnParcel  //Will not be serialize  into parcel
     var posterImageUrl = "https://image.tmdb.org/t/p/w342/$posterPath"
     //Allows you call methods on the movie class without instantiating  the object
     companion object{
@@ -33,6 +39,7 @@ data class Movie (
                 movies.add(
                     Movie(
                         movieJson.getInt("id"),
+                        movieJson.getDouble("vote_average"),
                         movieJson.getString("poster_path"),
                         movieJson.getString("backdrop_path"), //I am grabbing the backdrop_path for future use.
                         //When the screen orientation changes to landscape, I will use the backdrop_path
